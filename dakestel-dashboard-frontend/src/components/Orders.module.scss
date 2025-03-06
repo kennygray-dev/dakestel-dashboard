@@ -1,0 +1,163 @@
+.ordersContainer {
+  padding: 2rem;
+  background-color: #f7fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: #2d3748;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .ordersList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .orderCard {
+    background: #fffef5;
+    border: 2px dashed #4a5568;
+    padding: 1.5rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95rem;
+    width: 80%;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    p {
+      margin: 0.5rem 0;
+      color: #2d3748;
+      font-weight: 500;
+    }
+
+    strong {
+      color: #1a202c;
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .statusSelect {
+      padding: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid #2c3e50;
+      background-color: #a8e6cf;
+      color: rgb(62, 61, 61);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      width: fit-content;
+      align-self: center;
+
+      &:hover {
+        background-color: #f1f6f3;
+      }
+    }
+
+    .productList {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-top: 1px dashed #4a5568;
+      padding-top: 0.8rem;
+
+      li {
+        color: #333;
+        font-weight: 500;
+        background: transparent;
+        padding: 0.4rem 0;
+        border-bottom: 1px dotted #4a5568;
+        font-size: 0.9rem;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
+    }
+    .orderButton{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .downloadButton {
+      background: white;
+      color: rgb(160, 151, 151);
+      font-size: 14px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border: 2px dashed black;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      
+      &:hover {
+        background: rgb(73, 71, 71);
+        color: white;
+      }
+    }
+
+    .deleteButton:hover{
+      background-color: rgb(145, 46, 46);
+    }
+    
+
+    .receiptFooter {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #4a5568;
+      border-top: 1px dashed #4a5568;
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+    }
+
+   
+  }
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+  .ordersContainer {
+    padding: 1rem;
+  }
+
+  .ordersList {
+    grid-template-columns: 1fr; 
+  }
+
+  .orderCard {
+    width: 100%; 
+    padding: 1rem;
+    font-size: 0.85rem; 
+  }
+
+  h1 {
+    font-size: 1.5rem; 
+  }
+
+  .statusSelect {
+    width: 100%; 
+  }
+}

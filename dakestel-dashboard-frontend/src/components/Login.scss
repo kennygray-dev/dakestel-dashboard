@@ -1,0 +1,114 @@
+/* Modern Login Page */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: white;
+}
+
+/* Glassmorphic Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: white;
+  padding: 1rem; /* Add padding for smaller screens */
+}
+
+.login-logo {
+  width: 100px; /* Slightly smaller logo for mobile */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.login-form {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%; /* Full width on mobile */
+  max-width: 350px; /* Limit maximum width */
+}
+
+.login-form h2 {
+  color: #444;
+  margin-bottom: 1rem;
+  font-size: 1.5rem; /* Smaller font size for mobile */
+}
+
+/* Input Fields */
+.login-form input {
+  width: 90%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 0.5px solid teal;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #333;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Placeholder Style */
+.login-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+}
+
+/* Modern Button */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #4c7560, #2a7b65);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s ease-in-out;
+}
+
+/* Button Hover */
+.login-form button:hover {
+  background: linear-gradient(45deg, #0e5e20, #36a166);
+  transform: scale(1.05);
+}
+
+/* Error Message. */
+.error-message {
+  color: rgb(255, 78, 78);
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* Mobile View Styles */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.5rem; 
+  }
+
+  .login-logo {
+    width: 80px;
+  }
+
+  .login-form {
+    padding: 1rem; 
+    width: 90%; 
+  }
+
+  .login-form h2 {
+    font-size: 1.3rem; 
+  }
+
+  .login-form input {
+    padding: 10px; 
+    font-size: 0.9rem; 
+  }
+
+  .login-form button {
+    padding: 10px; 
+    font-size: 0.9rem; 
+  }
+}

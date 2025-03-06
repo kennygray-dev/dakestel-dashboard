@@ -1,0 +1,110 @@
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #1D3B30; 
+}
+
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; 
+  height: 100%;
+  background: linear-gradient(135deg,  #155d62, #7baa99);
+  transition: left 0.3s ease-in-out;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000; 
+
+  &.open {
+    left: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      padding: 15px;
+      text-align: left;
+
+      a {
+        color: #b2beb5; 
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+        transition: 0.3s;
+        
+        &:hover {
+          background: #3e5c50; 
+          color: #dff6f0; 
+        }
+      }
+    }
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #dff6f0; 
+  }
+
+  .logout-button {
+    background: transparent;
+    border: none;
+    color: #dff6f0;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding: 15px;
+    width: 100%;
+    transition: 0.3s;
+    margin-bottom: 20px; 
+    .logout-icon {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+
+    &:hover {
+      background: #3e5c50;
+      color: #ffffff;
+    }
+  }
+}
+
+.menu-icon {
+  font-size: 32px; 
+  color: #1D3B30;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  
+}
+
+.nav-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  vertical-align: middle;
+  color: #dff6f0; 
+}
+
+.logout-icon {
+  margin-right: 8px;
+  font-size: 22px;
+}
+
+
+.sidebar-logo {
+  width: 100px; 
+  
+  margin: 20px auto;
+}
