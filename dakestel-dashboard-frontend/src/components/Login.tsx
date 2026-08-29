@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.scss"; 
+import { API_URL } from "../config";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const Login: React.FC = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/users/login", {
+      const response = await axios.post(`${API_URL}/users/login`, {
         email,
         password,
       });

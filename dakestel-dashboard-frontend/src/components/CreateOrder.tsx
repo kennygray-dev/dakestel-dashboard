@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./CreateOrder.module.scss"; // Import the SCSS file
+import { API_URL } from "../config";
 
 interface Product {
   _id: string;
@@ -26,7 +27,7 @@ const CreateOrder: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products");
+        const response = await axios.get(`${API_URL}/products`);
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -99,7 +100,7 @@ const CreateOrder: React.FC = () => {
     console.log("Payload being sent:", payload); // Debugging
 
     try {
-      const response = await axios.post("http://localhost:5000/api/orders", payload);
+      const response = await axios.post(`${API_URL}/orders`, payload);
       alert("Order created successfully!");
       console.log(response.data);
       navigate("/orders"); // Redirect to the Orders page

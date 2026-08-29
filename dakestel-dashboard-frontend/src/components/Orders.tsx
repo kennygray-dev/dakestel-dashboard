@@ -3,6 +3,7 @@ import axios from "axios";
 import { Order } from "../types";
 import styles from "./Orders.module.scss";
 import { jsPDF } from "jspdf";
+import { API_URL } from "../config";
 
 const Orders: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -13,7 +14,7 @@ const Orders: React.FC = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/orders");
+        const response = await axios.get(`${API_URL}/orders`);
         // Sort orders by latest first
         const sortedOrders = response.data.sort(
           (a: Order, b: Order) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -32,7 +33,7 @@ const Orders: React.FC = () => {
   // Handle status update
   const handleStatusUpdate = async (orderId: string, newStatus: "pending" | "completed") => {
     try {
-      await axios.put(`http://localhost:5000/api/orders/${orderId}`, { status: newStatus });
+      await axios.put(`${API_URL}/orders/${orderId}`, { status: newStatus });
 
       alert("Order status updated successfully!");
 
@@ -53,7 +54,7 @@ const Orders: React.FC = () => {
     if (!window.confirm("Are you sure you want to delete this order?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/orders/${orderId}`);
+      await axios.delete(`${API_URL}/orders/${orderId}`);
 
       alert("Order deleted successfully!");
       // Remove the order from local state

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { OrderData, Order, Revenue, WeeklySales, TotalSales } from "../types"; // Import types
 
-const API_URL = "http://localhost:5000/api"; // Replace with your backend URL
+import { API_URL } from "../config";
 
 // Fetch all orders
 export const getOrders = async (): Promise<Order[]> => {

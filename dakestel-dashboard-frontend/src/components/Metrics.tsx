@@ -5,6 +5,7 @@ import styles from "./Metrics.module.scss";
 import CountUp from "react-countup"; 
 import { FaShoppingCart, FaCoins, FaUsers, FaChartLine } from "react-icons/fa"; // Import icons
 import { ClipLoader } from "react-spinners"; // Import a loading spinner
+import { API_URL } from "../config";
 
 const Metrics: React.FC = () => {
   const [weeklySalesData, setWeeklySalesData] = useState<{ week: string; totalSales: number }[]>([]);
@@ -24,13 +25,13 @@ const Metrics: React.FC = () => {
     const fetchData = async () => {
       try {
         setLoading(true); // Set loading to true before fetching data
-        const weeklySalesResponse = await axios.get("http://localhost:5000/api/orders/weekly-sales-data");
-        const totalSalesResponse = await axios.get("http://localhost:5000/api/orders/total-sales");
-        const totalRevenueResponse = await axios.get("http://localhost:5000/api/orders/total-revenue");
-        const totalCustomersResponse = await axios.get("http://localhost:5000/api/orders/total-customers");
-        const orderStatusResponse = await axios.get("http://localhost:5000/api/orders/order-status-summary");
-        const popularProductsResponse = await axios.get("http://localhost:5000/api/orders/popular-orders");
-        const newReturningCustomersresponse = await axios.get("http://localhost:5000/api/orders/new-returning-customers");
+        const weeklySalesResponse = await axios.get(`${API_URL}/orders/weekly-sales-data`);
+        const totalSalesResponse = await axios.get(`${API_URL}/orders/total-sales`);
+        const totalRevenueResponse = await axios.get(`${API_URL}/orders/total-revenue`);
+        const totalCustomersResponse = await axios.get(`${API_URL}/orders/total-customers`);
+        const orderStatusResponse = await axios.get(`${API_URL}/orders/order-status-summary`);
+        const popularProductsResponse = await axios.get(`${API_URL}/orders/popular-orders`);
+        const newReturningCustomersresponse = await axios.get(`${API_URL}/orders/new-returning-customers`);
 
         setWeeklySalesData(weeklySalesResponse.data);
         setTotalSales(totalSalesResponse.data.totalSales);
