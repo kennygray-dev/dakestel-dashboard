@@ -44,8 +44,8 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
 
-    // Check if user exists
-    const user = await User.findOne({ email });
+    // Register lowercases the email, so match on the same normalized form
+    const user = await User.findOne({ email: email?.toLowerCase() });
 
     if (!user) {
       res.status(400).json({ message: "User with this email does not exist" });
